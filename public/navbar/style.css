@@ -59,6 +59,10 @@ nav a:hover {
     align-items: center;
 }
 
+.logo {
+  order: 4;
+}
+
 .toggle {
     order:1;
 }
@@ -118,6 +122,7 @@ nav a:hover {
 
   .logo {
       flex: 1;
+      order: 0;
   }
 
   .item.button {
