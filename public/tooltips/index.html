@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooltips</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .avator {
+
+            transform: translate(100%, 100%);
+            background-color: transparent;
+            position: relative;
+        }
+
+        .avator::before, .avator::after{
+            --scale: 0;
+            --tooltips-color: #333;
+            --arrow-size: 10px;
+
+            position: absolute;
+            left: 50%;
+            top: -0.25rem;
+            transform:translateX(-50%) translateY(var(--translate-y, 0)) scale(var(--scale));
+            transition: 150ms transform;
+            transform-origin:  top center;
+            z-index: -1;                     
+        }
+
+        .avator::before {
+            --translate-y: calc(100%);
+            content: attr(data-tooltips);
+            width: max-content;
+            background-color: black;
+            color:white;
+            padding: 0.6rem;
+            background-color: var(--tooltips-color);
+        }
+
+        .avator:hover::before, .avator:hover::after {     
+            --scale: 1;
+            
+        }
+
+        .avator::after {
+            --translate-y: calc(100%);
+            content: '';
+            border:var(--arrow-size) solid transparent;
+            border-bottom-color: var(--tooltips-color);
+            transform-origin:  bottom center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="col">
+        <span class="avator" id="avator" data-tooltips="Span 1">testedfefe</span>
+        <span class="avator" id="avator" data-tooltips="Span 2">testedfefe</span>
+        <span class="avator" id="avator" data-tooltips="Span 3">testedfefe</span>
+        <span class="avator" id="avator" data-tooltips="Span 4">testedfefe</span>
+        <span class="avator" id="avator" data-tooltips="Span 5">testedfefe</span>
+        <span class="avator" id="avator" data-tooltips="Span 6">testedfefe</span>
+        <span class="avator" id="avator" data-tooltips="Span 7">testedfefe</span>
+        <span class="avator" id="avator" data-tooltips="Span 8">testedfefe</span>
+        <span class="avator" id="avator" data-tooltips="Span 9">testedfefe</span>
+        <span class="avator" id="avator" data-tooltips="Span 10">testedfefe</span>
+        <span class="avator" id="avator" data-tooltips="Span 11">testedfefe</span>
+        <span class="avator" id="avator" data-tooltips="Span 12">testedfefe</span>
+
+        </div>
+
+        <div class="col">
+            TTTTTTTTTTTTT
+        </div>
+    </div>
+</body>
+
+<script>
+    /*
+    document.getElementById("avator").addEventListener("mouseover", ()=>{
+        document.getElementById("avator").setAttribute("data-tooltips", "this is just a test;this is secend line");
+        console.log(document.getElementById("avator").getAttribute("data-tooltips"));
+    });*/
+</script>
+
+</html>
